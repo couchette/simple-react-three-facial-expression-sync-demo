@@ -87,7 +87,7 @@ function ThreeContainer() {
       renderer.setPixelRatio(window.devicePixelRatio);
       renderer.setSize(window.innerWidth, window.innerHeight);
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      document.body.appendChild(renderer.domElement);
+      containerRef.current.appendChild(renderer.domElement);
 
       const camera = new THREE.PerspectiveCamera(
         60,
