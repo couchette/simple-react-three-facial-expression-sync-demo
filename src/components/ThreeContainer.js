@@ -152,12 +152,12 @@ function ThreeContainer() {
 
       const video = document.createElement("video");
 
-      const texture = new THREE.VideoTexture(video);
-      texture.colorSpace = THREE.SRGBColorSpace;
+      // const texture = new THREE.VideoTexture(video);
+      // texture.colorSpace = THREE.SRGBColorSpace;
 
       const geometry = new THREE.PlaneGeometry(1, 1);
       const material = new THREE.MeshBasicMaterial({
-        map: texture,
+        // map: texture,
         depthWrite: false,
       });
       const videomesh = new THREE.Mesh(geometry, material);
