@@ -1,5 +1,7 @@
 # simple-react-three-facial-expression-sync-demo
 
+![](pics/1.png)
+
 简单易用的 React Three.js 人脸动捕与3D模型表情同步应用，快速开始你的 3D Web 开发之旅！
 
 ## 项目简介
