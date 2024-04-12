@@ -12,9 +12,7 @@ import { useRef, useEffect } from "react";
 
 // Mediapipe
 
-import vision from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0";
-
-const { FaceLandmarker, FilesetResolver } = vision;
+import { FaceLandmarker, FilesetResolver } from "@mediapipe/tasks-vision";
 
 const blendshapesMap = {
   // '_neutral': '',
@@ -168,7 +166,8 @@ function ThreeContainer() {
       // MediaPipe
 
       const filesetResolver = await FilesetResolver.forVisionTasks(
-        "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/wasm"
+        // "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/wasm"
+        "fileset_resolver/wasm"
       );
 
       const faceLandmarker = await FaceLandmarker.createFromOptions(
@@ -176,7 +175,8 @@ function ThreeContainer() {
         {
           baseOptions: {
             modelAssetPath:
-              "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task",
+              // "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task",
+              "ai_models/face_landmarker.task",
             delegate: "GPU",
           },
           outputFaceBlendshapes: true,
@@ -203,6 +203,7 @@ function ThreeContainer() {
       function animation() {
         if (video.readyState >= HTMLMediaElement.HAVE_METADATA) {
           const results = faceLandmarker.detectForVideo(video, Date.now());
+          console.log(results);
 
           if (results.facialTransformationMatrixes.length > 0) {
             const facialTransformationMatrixes =
